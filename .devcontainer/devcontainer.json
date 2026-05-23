@@ -5,8 +5,9 @@
   // ベース環境。Node.jsのLTS版とGitなどが最初から入っている公式イメージ
   "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
 
-  // 環境ができた直後に1回だけ実行されるコマンド。ここでClaude Codeをインストールする
-  "postCreateCommand": "npm install -g @anthropic-ai/claude-code",
+  // 環境ができた直後に1回だけ実行されるコマンド。
+  // Claude Codeをインストールし、モデルを固定する管理者設定を所定の場所に配置する
+  "postCreateCommand": "npm install -g @anthropic-ai/claude-code && sudo mkdir -p /etc/claude-code && sudo cp .devcontainer/managed-settings.json /etc/claude-code/managed-settings.json",
 
   // VS Codeに自動で入れておく拡張機能
   "customizations": {
